@@ -44,7 +44,7 @@ void forward(int* x, int* y, int dir);
 void gotoxy(int x, int y);
 void record(int x, int y);
 int still_in_maze(int x, int y);
-int wall_ahead(int m[][MAZE_SIZE], int x, int y, int dir); // º®À» ¸¶ÁÖÄ¡¸é
+int wall_ahead(int m[][MAZE_SIZE], int x, int y, int dir); // ë²½ì„ ë§ˆì£¼ì¹˜ë©´
 void right(int* dir);
 void left(int* dir);
 void right_hand_on_wall(int m[][MAZE_SIZE], int x, int y, int dir);
@@ -80,9 +80,9 @@ int main()
 
 void forward(int* x, int* y, int dir)
 {//call by reference
-	// (x´Â °¡·Î,y´Â ¼¼·Î) ·Î Á¤ÀÇÇÔ
+	// (xëŠ” ê°€ë¡œ,yëŠ” ì„¸ë¡œ) ë¡œ ì •ì˜í•¨
 	gotoxy(*x + 1, *y + 1);
-	putch(' '); // ÇØ´ç position x,y ¿¡ °¡¼­ ÇÏ³ª¸¦ Áö¿ö¹ö¸°´Ù. location update ÇÏ±â À§ÇØ!
+	putch(' '); // í•´ë‹¹ position x,y ì— ê°€ì„œ í•˜ë‚˜ë¥¼ ì§€ì›Œë²„ë¦°ë‹¤. location update í•˜ê¸° ìœ„í•´!
 
 	*x = (dir == LEFT) ? --(*x) : (dir == RIGHT) ? ++(*x) : *x;
 	*y = (dir == UP) ? --(*y) : (dir == DOWN) ? ++(*y) : *y;
@@ -100,12 +100,12 @@ int still_in_maze(int x, int y)
 }
 int wall_ahead(int m[][MAZE_SIZE], int x, int y, int dir)
 {
-	// call by reference °¡ ¾Æ´Ñ value¸¦ ÇÏ´Â ÀÌÀ¯´Â
-	// ±×Àú ÆÇ´Ü¸¸ ÇÏ¸é µÇ±â ¶§¹®ÀÓ.
+	// call by reference ê°€ ì•„ë‹Œ valueë¥¼ í•˜ëŠ” ì´ìœ ëŠ”
+	// ê·¸ì € íŒë‹¨ë§Œ í•˜ë©´ ë˜ê¸° ë•Œë¬¸ì„.
 	x = (dir == LEFT) ? --x : (dir == RIGHT) ? ++x : x;
 	y = (dir == UP) ? --y : (dir == DOWN) ? ++y : y;
 
-	return m[y][x]; // º®ÀÌ¸é 1ÀÌ return, ¾Æ´Ï¸é 0ÀÌ return
+	return m[y][x]; // ë²½ì´ë©´ 1ì´ return, ì•„ë‹ˆë©´ 0ì´ return
 }
 void right(int* dir)
 {
@@ -140,7 +140,7 @@ void gotoxy(int x, int y)
 	CONSOLE_CURSOR_INFO ConsoleCursor;
 	ConsoleCursor.bVisible = 0;
 	ConsoleCursor.dwSize = 1;
-	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &ConsoleCursor); // ÄÜ¼ÖÃ¢¿¡¼­ Ä¿¼­ Ç¥½Ã Á¦°Å
+	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &ConsoleCursor); // ì½˜ì†”ì°½ì—ì„œ ì»¤ì„œ í‘œì‹œ ì œê±°
 
 	COORD Pos = { x, y };
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Pos);
