@@ -141,7 +141,7 @@ void delay(clock_t n)
 	clock_t start = clock();
 	while (clock() - start < n);
 }
-int del_path(int i, int j) // °æ·Î ´ÜÃà
+int del_path(int i, int j) // Â°Ã¦Â·ÃŽ Â´ÃœÃƒÃ 
 {
 	int k = i;
 	while (rec[j] >= 0)
@@ -149,7 +149,7 @@ int del_path(int i, int j) // °æ·Î ´ÜÃà
 	rec[i] = -1;
 	return k; // return index i
 }
-void shortest_path() // ÃÖ´Ü °Å¸®
+void shortest_path() // ÃƒÃ–Â´Ãœ Â°Ã…Â¸Â®
 {
 	int i = 0, j, x, y;
 	while (rec[i] >= 0)
