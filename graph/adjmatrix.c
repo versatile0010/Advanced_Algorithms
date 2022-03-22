@@ -2,20 +2,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAX_NODE 17 //ÃÖ´ë ³ëµå °³¼ö ¼³Á¤
+#define MAX_NODE 17 //ìµœëŒ€ ë…¸ë“œ ê°œìˆ˜ ì„¤ì •
 
 typedef struct _node {
 	int vertex;
 	struct node* next;
 }node;
 FILE* fp;
-void input_adjmatrix(int a[][MAX_NODE], int* V, int* E); //ÀÎÁ¢Çà·Ä
-void print_adjmatrix(int a[][MAX_NODE], int V); //ÀÎÁ¢Çà·Ä ±â¹Ý ±×·¡ÇÁ Ãâ·Â
+void input_adjmatrix(int a[][MAX_NODE], int* V, int* E); //ì¸ì ‘í–‰ë ¬
+void print_adjmatrix(int a[][MAX_NODE], int V); //ì¸ì ‘í–‰ë ¬ ê¸°ë°˜ ê·¸ëž˜í”„ ì¶œë ¥
 
-int name2int(char c) { //¹®ÀÚ¸¦ ¼ýÀÚ·Î
+int name2int(char c) { //ë¬¸ìžë¥¼ ìˆ«ìžë¡œ
 	return c - 'A';
 }
-int int2name(int i) { //¼ýÀÚ¸¦ ¹®ÀÚ·Î
+int int2name(int i) { //ìˆ«ìžë¥¼ ë¬¸ìžë¡œ
 	return i + 'A';
 }
 void main()
@@ -33,7 +33,7 @@ void main()
 
 void input_adjmatrix(int a[][MAX_NODE], int* V, int* E)
 {
-	char vertex[3]; // ³Î ¹®ÀÚ¸¦ °í·ÁÇÏ¿© Å©±â¸¦ 3À¸·Î ¼±¾ð
+	char vertex[3]; // ë„ ë¬¸ìžë¥¼ ê³ ë ¤í•˜ì—¬ í¬ê¸°ë¥¼ 3ìœ¼ë¡œ ì„ ì–¸
 	int i, j, k;
 	printf("input # of node, edge >>");
 	fscanf(fp,"%d %d", V, E);
@@ -41,12 +41,12 @@ void input_adjmatrix(int a[][MAX_NODE], int* V, int* E)
 	{
 		for (j = 0; j < *V; j++)
 		{
-			a[i][j] = 0; // matrix ¸¦ ¸ðµÎ 0À¸·Î ÃÊ±âÈ­
+			a[i][j] = 0; // matrix ë¥¼ ëª¨ë‘ 0ìœ¼ë¡œ ì´ˆê¸°í™”
 		}
 	}
 	for (i = 0; i < *V; i++)
 	{
-		a[i][i] = 1; // ´ë°¢Çà·ÄÀº 1À» ³Ö¾îÁÜ(°¢°¢ ³ëµåµéÀº ÀÚ±âÀÚ½Å°ú ¿¬°á)
+		a[i][i] = 1; // ëŒ€ê°í–‰ë ¬ì€ 1ì„ ë„£ì–´ì¤Œ(ê°ê° ë…¸ë“œë“¤ì€ ìžê¸°ìžì‹ ê³¼ ì—°ê²°)
 	}
 	for (k = 0; k < *E; k++)
 	{
