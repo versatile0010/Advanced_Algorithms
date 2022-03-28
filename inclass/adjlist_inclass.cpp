@@ -41,7 +41,7 @@ void input_adjlist(node* a[], int* V, int* E)
 	char vertex[3];
 	int i, j;
 	node* t;
-	printf("\nnode edge �Է�\n");
+	printf("\nnode edge ÀÔ·Â\n");
 	fscanf(fp, "%d %d", V, E);
 	for (i = 0; i < *V; i++)
 		a[i] = NULL;
