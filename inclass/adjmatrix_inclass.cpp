@@ -38,9 +38,9 @@ int main()
 }
 void input_adjmatrix(int a[][MAX_NODE], int* V, int* E)
 {
-	char vertex[3]; //null ¹®ÀÚ¸¦ °í·ÁÇØ¼­
+	char vertex[3]; //null Â¹Â®Ã€ÃšÂ¸Â¦ Â°Ã­Â·ÃÃ‡Ã˜Â¼Â­
 	int i, j, k;
-	printf("node, edge °³¼ö : ");
+	printf("node, edge Â°Â³Â¼Ã¶ : ");
 	fscanf(fp, "%d %d", V, E);
 	for (i = 0; i < *V; i++)
 	{
