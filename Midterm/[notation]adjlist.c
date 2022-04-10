@@ -15,21 +15,21 @@ int name2int(char c) {
 char int2name(int i) {
 	return i + 'A';
 }
-void input_adjlist(int* a[], int* V, int* E) // ÀÎÁ¢¸®½ºÆ® ±â¹İ ±×·¡ÇÁ
+void input_adjlist(int* a[], int* V, int* E) // ì¸ì ‘ë¦¬ìŠ¤íŠ¸ ê¸°ë°˜ ê·¸ë˜í”„
 {
 	char vertex[3];
 	int i, j, k;
 	node* t;
 
-	printf("³ëµå¿Í ¿§Áö ¼ö¸¦ ÀÔ·Â: ");
+	printf("ë…¸ë“œì™€ ì—£ì§€ ìˆ˜ë¥¼ ì…ë ¥: ");
 	scanf("%d %d", V, E);
 	
 	for (i = 0; i < *V; i++)
-		a[i] = NULL; //Æ÷ÀÎÅÍ ¹è¿­ÀÌ ´ã°í ÀÖ´Â ÁÖ¼Ò°ªÀ» NULL ·Î ÃÊ±âÈ­
+		a[i] = NULL; //í¬ì¸í„° ë°°ì—´ì´ ë‹´ê³  ìˆëŠ” ì£¼ì†Œê°’ì„ NULL ë¡œ ì´ˆê¸°í™”
 
 	for (j = 0; j < *E; j++)
 	{
-		printf("³ëµå ¿¬°á °ü°è ÀÔ·Â(ex:AB) : ");
+		printf("ë…¸ë“œ ì—°ê²° ê´€ê³„ ì…ë ¥(ex:AB) : ");
 		scanf("%s", vertex);
 
 		i = name2int(vertex[0]);
@@ -45,12 +45,12 @@ void input_adjlist(int* a[], int* V, int* E) // ÀÎÁ¢¸®½ºÆ® ±â¹İ ±×·¡ÇÁ
 		a[i] = t;
 	}
 }
-void print_adjlist(int* a[], int V) // ÀÎÁ¢¸®½ºÆ® ±â¹İ ±×·¡ÇÁ Ãâ·Â
+void print_adjlist(int* a[], int V) // ì¸ì ‘ë¦¬ìŠ¤íŠ¸ ê¸°ë°˜ ê·¸ë˜í”„ ì¶œë ¥
 {
 	printf("\n");
 	node* t;
 	for (int i = 0; i < V; i++) {
-		printf("%c", int2name(i)); // Ã¹ ¹øÂ° ¿­¿¡ ¸ğµç ³ëµå Ãâ·Â
+		printf("%c", int2name(i)); // ì²« ë²ˆì§¸ ì—´ì— ëª¨ë“  ë…¸ë“œ ì¶œë ¥
 		t = (node*)malloc(sizeof(node));
 
 		for (t = a[i]; t != NULL; t = t->next)
